@@ -25,6 +25,19 @@ function RenderCommentsComponent({comments}){
   );
 }
 
+function DishComponent({dish}){
+  return(
+    <Card>
+      <CardImg src={dish.image} alt={dish.alt} />
+
+      <CardBody>
+        <CardTitle>{dish.name}</CardTitle>
+        <CardText>{dish.description}</CardText>
+      </CardBody>
+    </Card>
+  );
+}
+
 const DishDetail = ({dish}) => {
   if(!dish){
     return (
@@ -36,14 +49,7 @@ const DishDetail = ({dish}) => {
     <div className="container">  
       <div className="row">
         <div className="col-12 col-md-5 m-1">
-          <Card>
-            <CardImg src={dish.image} alt={dish.alt} />
-
-            <CardBody>
-              <CardTitle>{dish.name}</CardTitle>
-              <CardText>{dish.description}</CardText>
-            </CardBody>
-          </Card>
+          <DishComponent dish={dish} />
         </div>
 
         <div className="col-12 col-md-5 m-1">
