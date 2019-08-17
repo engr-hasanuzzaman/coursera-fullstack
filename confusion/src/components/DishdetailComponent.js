@@ -20,7 +20,7 @@ class DishDetail extends Component{
             return (
               <li key={comment.id}>
                 <p>{comment.comment}</p>
-                <p>-- {comments[0].author}, {new Date(comments[0].date).toDateString()}</p>
+                <p>-- {comments[0].author}, { new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date))) }</p>
               </li>
             )
           })
