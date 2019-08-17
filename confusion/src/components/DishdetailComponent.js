@@ -2,8 +2,12 @@ import React, {Component} from 'react';
 import {Card, CardBody, CardImg, CardTitle, CardText} from 'reactstrap';
 
 class DishDetail extends Component{
-  constructor(props){
-    super(props);
+  componentDidUpdate(){
+    console.log("DishDetail component componentDidUpdate");
+  }
+
+  componentDidMount(){
+    console.log("DishDetail componentDidMount");
   }
 
   renderComments(comments){
@@ -31,6 +35,7 @@ class DishDetail extends Component{
   }
 
   render(){
+    console.log("DishDetail component render");
     if(!this.props.dish){
       return (
         <div></div>
@@ -55,7 +60,7 @@ class DishDetail extends Component{
             <Card>
               <CardBody>
                 <h4>Comments</h4>
-                <CardText>{this.renderComments(this.props.dish.comments)}</CardText>
+                {this.renderComments(this.props.dish.comments)}
               </CardBody>
             </Card>
           </div>

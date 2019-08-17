@@ -2,11 +2,15 @@ import React, { Component } from 'react';
 import { Card, CardBody, CardImg, CardImgOverlay, CardText, CardTitle } from 'reactstrap';
 
 class Menu extends Component{
-  constructor(props){
-    super(props);
+  componentDidUpdate(){
+    console.log("menu component componentDidUpdate");
   }
 
+  componentDidMount(){
+    console.log("Menu componentDidMount");
+  }
   render(){
+    console.log("menu component render");
     const menu = this.props.dishes.map( dish => {
       return (
         <div key={dish.id} className="col-12 col-md-5 m-1">
