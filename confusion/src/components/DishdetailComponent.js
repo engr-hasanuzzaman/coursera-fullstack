@@ -6,39 +6,54 @@ class DishDetail extends Component{
     super(props);
   }
 
-  getComments(){
-    return this.props.dish.comments.map((comment) => {
+  renderComments(comments){
+    if(comments.length == 0){
       return (
-        <div>
-          <p>{comment.comment}</p>
-        <p>-- {comment.author} {comment.date}</p>
-        </div>
+        <div></div>
       );
-    });
+    }
+
+    return (
+      <div>
+        <h4>Comments</h4>
+        <ul className="list-unstyled">
+          {comments.map((comment) => {
+            return (
+              <li key={comment.id}>
+                <p>{comment.comment}</p>
+                <p>-- {comments[0].author}, {new Date(comments[0].date).toDateString()}</p>
+              </li>
+            )
+          })
+        }
+        </ul>
+      </div>
+    );
   }
+
+  renderDish(dish){
+    return ( 
+      <Card>
+        <CardImg src={dish.image} alt={dish.alt} />
+
+        <CardBody>
+          <CardTitle>{dish.name}</CardTitle>
+          <CardText>{dish.description}</CardText>
+        </CardBody>
+      </Card>
+    );
+  } 
 
   render(){
     if(this.props.dish){
       return (
         <div className="row">
           <div className="col-12 col-md-5 m-1">
-            <Card>
-              <CardImg src={this.props.dish.image} alt={this.props.dish.alt} />
-  
-              <CardBody>
-                <CardTitle>{this.props.dish.name}</CardTitle>
-                <CardText>{this.props.dish.description}</CardText>
-              </CardBody>
-            </Card>
+            {this.renderDish(this.props.dish)}
           </div>
   
           <div className="col-12 col-md-5 m-1">
-            <Card>
-              <CardBody>
-                <CardTitle>Comments</CardTitle>
-                <CardText>{this.getComments()}</CardText>
-              </CardBody>
-            </Card>
+            {this.renderComments(this.props.dish.comments)}
           </div>
         </div>
       );
