@@ -31,3 +31,15 @@ address{
 .navbar-dark {
   background-color: #512DA8;
 }
+
+.leader-container{
+  margin-bottom: 5px;
+}
+
+.leader-info{
+  margin-left: 35px;
+}
+
+.leader-desig{
+  margin-top: 3px;
+}
