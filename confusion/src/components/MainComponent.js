@@ -11,6 +11,7 @@ import { LEADERS } from '../shared/leaders';
 import Home from './HomeComponent';
 import Contact from './ContactComponent';
 import DishDetail from './DishdetailComponent';
+import About from './AboutComponent'
 
 class Main extends Component{
   constructor(props){
@@ -61,7 +62,8 @@ class Main extends Component{
           <Route path="/home" component={HomePage}/>
           <Route exact path="/menu" component={() => <Menu dishes={this.state.dishes} />}/>
           <Route path='/menu/:dishId' component={DishWithId} />
-          <Route exact path='/contactus' component={Contact} />} />
+          <Route exact path='/contactus' component={Contact} />
+          <Route exact path='/aboutus' render={(props)=> <About {...props} leaders={this.state.leaders} />} />
           <Redirect path="/home" />
         </Switch>
       <Footer/>
