@@ -33,7 +33,7 @@ address{
 }
 
 .leader-container{
-  margin-bottom: 5px;
+  margin-bottom: 25px;
 }
 
 .leader-info{
@@ -41,5 +41,5 @@ address{
 }
 
 .leader-desig{
-  margin-top: 3px;
+  margin: 5px 0 10px;
 }
