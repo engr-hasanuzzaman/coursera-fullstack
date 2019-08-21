@@ -64,7 +64,7 @@ class Main extends Component{
           <Route path='/menu/:dishId' component={DishWithId} />
           <Route exact path='/contactus' component={Contact} />
           <Route exact path='/aboutus' render={(props)=> <About {...props} leaders={this.state.leaders} />} />
-          <Redirect path="/home" />
+          <Redirect to="/home" />
         </Switch>
       <Footer/>
       </div>
