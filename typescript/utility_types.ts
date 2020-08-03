@@ -29,3 +29,14 @@ const h1 = {
 
 console.log("after updating", h1, ", become: ", updateHuman(h1, { name: 'Hasan Uz Zaman' }));
 
+interface PageInfo {
+    title: string;
+  }
+  
+  type Page = "home" | "about" | "contact";
+  
+  const nav: Record<Page, PageInfo> = {
+    about: { title: "about" },
+    contact: { title: "contact" },
+    home: { title: "home" }
+  };
