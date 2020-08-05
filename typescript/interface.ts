@@ -42,3 +42,23 @@ let roa: ReadonlyArray<number> = [4,5,6];
 normArr = roa as number[];
 // N.B: not, normArr & roa points to the same obj so updating norArr will update roa also
 
+// to pass extra properties (through Interface ) we have to create new object then otherwise
+interface LabeledValue {
+    label: string;
+  }
+  
+  function printLabel(labeledObj: LabeledValue) {
+    console.log(labeledObj.label);
+  }
+  
+  let myObj = { size: 10, label: "Size 10 Object" }; // 
+  // type check will not check extra properties as this is myObj type and only check req properties
+  printLabel(myObj); 
+//   printLabel({ size: 10, label: "Size 10 Object" }); // will give error that 
+// Argument of type '{ size: number; label: string; }' is not assignable to parameter of type 'LabeledValue'.
+//  or we can add index signature  to LabeledValue to reveive other properties
+interface LabeledValueWinthIndexType {
+    label: string;
+    [index: string]: any
+  }
+// now type script know there are other properties
