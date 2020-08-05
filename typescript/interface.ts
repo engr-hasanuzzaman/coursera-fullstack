@@ -31,3 +31,14 @@ function createButton(buttonProps: Button) {
 let btn1 = createButton({ text: 'Submit', type: 'submit'} );
 let btn2 = createButton({ text: 'Review', color: 'green' });
 console.log(btn1, btn2);
+
+// for variable: const, for properties: readonly
+// reanonly properties are not editable after creation
+// 
+let normArr: number[] = [1, 2, 3];
+let roa: ReadonlyArray<number> = [4,5,6];
+
+// force to assing readonly array to normal array (otherwise give error)
+normArr = roa as number[];
+// N.B: not, normArr & roa points to the same obj so updating norArr will update roa also
+
