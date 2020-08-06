@@ -62,3 +62,22 @@ interface LabeledValueWinthIndexType {
     [index: string]: any
   }
 // now type script know there are other properties
+
+// nterfaces are capable of describing the wide range of shapes that JavaScript objects can take.
+// To describe a function type with an interface, we give the interface a call signature.
+// function declaration with only the parameter list and return type given.
+interface SearchFunc {
+    (source: string, subString: string): boolean;
+  }
+
+//   type returned from a numeric indexer must be a subtype of the type returned from the string indexer.
+// N.B: need to try examples
+
+let func: SearchFunc = (s: string, sub: string) => {
+  return true;
+}
+
+// without params type
+let func1: SearchFunc = (s, sub) => {
+  return true;
+}
