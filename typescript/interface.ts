@@ -127,3 +127,6 @@ interface CustomMap {
   [index: string]: number | string,
   name: string,
 }
+
+// inteface can extends multiple interfces & classes
+// interface extends class take public, protected, private property and only action signature (not implemetation)
