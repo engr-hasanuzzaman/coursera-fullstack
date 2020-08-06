@@ -81,3 +81,49 @@ let func: SearchFunc = (s: string, sub: string) => {
 let func1: SearchFunc = (s, sub) => {
   return true;
 }
+
+// indexable type
+interface StringArray {
+  [index: number]: string;
+}
+
+let myArray: StringArray;
+myArray = ["Bob", "Fred"];
+myArray[3] = "sumon"
+console.log("updated indexable myArray ", myArray); // [ 'Bob', 'Fred', <1 empty item>, 'sumon' ]
+
+// in interface & type declaration semi-colon, comma both are allowed to separate properties
+// even you can skip semicolon or comma bo the following are valid 
+interface A {
+  name: string;
+  age: number;
+}
+
+interface B {
+  name: string,
+  age: number,
+}
+
+interface C {
+  name: string
+  age: number
+}
+
+let a: A = {name: 'A', age: 30};
+let b: B = {name: "B", age: 0};
+let c: C = {name: "C", age: 2};
+console.log(a, b, c);
+
+// in js object, key type convert to string type (call toString implicitly for not string object)
+// so, in the below CustomMap means it will return number for string key, again it will return string
+//  for string that is contradict with previous one (this is for if there any string key explicitly)
+// interface CustomMap {
+//   [index: string]: number,
+//   name: string,
+// }
+
+// following declaration is valid as explict string index return either string | number
+interface CustomMap {
+  [index: string]: number | string,
+  name: string,
+}
