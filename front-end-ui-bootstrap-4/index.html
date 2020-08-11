@@ -27,7 +27,7 @@
                     <li class="nav-item active"><a class="nav-link" href="#"><span class="fa fa-home fa-lg"></span> Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="./aboutus.html"><span class="fa fa-info fa-lg"></span> About</a></li>
                     <li class="nav-item"><a class="nav-link" href="#"><span class="fa fa-list fa-lg"></span> Menu</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#"><span class="fa fa-address-card fa-lg"></span> Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./contactus.html"><span class="fa fa-address-card fa-lg"></span> Contact</a></li>
                 </ul>    
            </div>
                         
@@ -47,7 +47,7 @@
                             <img src="img/logo.png" class="img-fluid">
                         </div>
                         <div class="col-12 col-sm-6">
-                            <button type="button" class="btn btn-warning btn-sm btn-block">Reserve Table</button>
+                            <a role="button" class="btn btn-warning btn-sm btn-block" href="#reservecard">Reserve Table</a>
                         </div>
                     </div>
                 </div>
@@ -83,15 +83,17 @@
             <div class="col-12 col-sm-10">
                 <div class="media">
                     <div class="media-body">
-                        <h2 class="mt-0">Weekend Grand Buffet <span class="badge badge-danger">HOT</span></h2>
+                        <h2 class="mt-0">Weekend Grand Buffet <span class="badge badge-danger">NEW</span></h2>
                         <p class="d-none d-sm-block">
                             Featuring mouthwatering combinations with a choice of five different salads, 
                             six enticing appetizers, six main entrees and five choicest desserts. 
                             Free flowing bubbly and soft drinks. All for just $19.99 per person
                         </p>
                     </div>
-                    <img class="d-flex mr-3 img-thumbnail align-self-center"
+                    <div class="media-right">
+                        <img class="d-flex mr-3 img-thumbnail align-self-center"
                             src="img/buffet.png" alt="Alberto Somayya">
+                    </div>
                 </div>
             </div>
         </div>
@@ -119,7 +121,7 @@
 
         <div class="row row-content">
             <div class="col-12 col-sm-8 offset-sm-2">
-                <div class="card">
+                <div class="card" id="reservecard">
                     <h3 class="card-header bg-warning text-white">Reserve a Table</h3>
                     <div class="card-body">
                         <form>
