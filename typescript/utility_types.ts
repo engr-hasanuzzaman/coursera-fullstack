@@ -78,3 +78,28 @@ type T3 = Extract<"a" | "b" | "c", "a" | "f">;
 type T4 = Extract<string | number | (() => void), Function>;
 //    ^?
 // extract is counter part of pick but for union type like Exclude & Omit
+
+// NonNullable<Type>
+// Constructs a type by excluding null and undefined from Type.
+// NonNullable works only on union type
+
+// Parameters<Type>
+// Constructs a tuple type from the types used in the parameters of a function type Type.
+type T8 = Parameters<(a: number, b: string, c: number | string) => void >;
+// Parameters take function as parameter and make a tupe using function parameters
+
+// ReturnType<Type> take function type as input. Type == Function type
+// Constructs a type consisting of the return type of function Type.
+declare function f1(): { a: number; b: string };
+type T5 = ReturnType<typeof f1>;
+
+// Required<Type>
+// Constructs a type consisting of all properties of T set to required. The opposite of Partial.
+interface Props {
+    a?: number;
+    b?: string;
+  }
+  
+  const obj: Props = { a: 5 };
+  
+  const obj2: Required<Props> = { a: 5 }; 
