@@ -47,4 +47,34 @@ interface PageInfo {
 
 // here we are picking only gender and age from Human type
 type Animal =  Pick<Human, "gender" | "age">;
-const cow: Animal = { gender: Gender.male, age: 3}
+let cow: Animal = { gender: Gender.male, age: 3}
+
+// Omit<Type, Keys>
+// Constructs a type by picking all properties from Type and then removing Keys.
+// This is opposite of pick
+
+// same as Animal Type
+type AnimalOmit = Omit<Human, 'address' | 'profession' | 'name'>;
+const cow1: AnimalOmit = { gender: Gender.male, age: 1}
+cow = cow1;
+
+// Exclude<Type, ExcludedUnion>
+// Constructs a type by excluding from Type all union members that are assignable to ExcludedUnion.
+
+type T0 = Exclude<"a" | "b" | "c", "a">;
+//    ^?
+type T1 = Exclude<"a" | "b" | "c", "a" | "b">;
+//    ^?
+type T2 = Exclude<string | number | (() => void), Function>;
+//    ^?
+
+// diff btw Omit and exclude https://stackoverflow.com/questions/56916532/difference-b-w-only-exclude-and-omit-pick-exclude-typescript#:~:text=1%20Answer&text=The%20opposite%20of%20this%20is,specified%20properties%20from%20the%20type.&text=Exclude%20is%20a%20different%20beast,a%20constituent%20of%20that%20union.
+// They operaate on diff type, omit take object type but Exclude take union type
+
+// Extract<Type, Union>
+// Constructs a type by extracting from Type all union members that are assignable to Union.
+type T3 = Extract<"a" | "b" | "c", "a" | "f">;
+//    ^?
+type T4 = Extract<string | number | (() => void), Function>;
+//    ^?
+// extract is counter part of pick but for union type like Exclude & Omit
