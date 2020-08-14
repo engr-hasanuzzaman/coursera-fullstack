@@ -29,6 +29,7 @@ const h1 = {
 
 console.log("after updating", h1, ", become: ", updateHuman(h1, { name: 'Hasan Uz Zaman' }));
 
+// works like map/dictionality and here , have to use
 interface PageInfo {
     title: string;
   }
@@ -40,3 +41,10 @@ interface PageInfo {
     contact: { title: "contact" },
     home: { title: "home" }
   };
+
+//   Pick<Type, Keys>
+// Constructs a type by picking the set of properties Keys from Type.
+
+// here we are picking only gender and age from Human type
+type Animal =  Pick<Human, "gender" | "age">;
+const cow: Animal = { gender: Gender.male, age: 3}
