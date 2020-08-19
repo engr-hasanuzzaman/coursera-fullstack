@@ -1,10 +1,12 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import Counter from './components/Counter';
 
 function App() {
+  const [count, setCount] = useState(0);
+
   return (
     <div className="App">
-      Quiz App
+      <Counter label="Counter" count={count} onIncrement={()=>{setCount(count+1)}} />
     </div>
   );
 }
