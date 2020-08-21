@@ -20,3 +20,17 @@ type A = {
 
 // as A is already a type we can apply keyof directly on it
 type literal2 = keyof A;
+
+type anyFun = (arg: any ) => any
+const f1 = (msg: string) => console.log("callback", msg)
+const wrapper = <T extends anyFun>(request: T) => {
+    const a = "hurrehhhhhh.....";
+    return(
+        (args) => {
+            request(`${args} ${a}`);
+        }
+    )
+}
+
+const cf1 = wrapper(f1);
+cf1("hi wrapper");
