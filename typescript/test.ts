@@ -34,3 +34,24 @@ const wrapper = <T extends anyFun>(request: T) => {
 
 const cf1 = wrapper(f1);
 cf1("hi wrapper");
+
+type SessionAttributes = {
+    password: string;
+    email: string;
+    company_login?: boolean | null;
+    foo: boolean;
+  };
+
+type InputsType = {
+    email: string;
+    password: string;
+    remember_me: boolean;
+};
+
+let iData: InputsType = {
+    email: 'test',
+    password: 'foo',
+    remember_me: true
+}
+let test: SessionAttributes = iData as SessionAttributes ;
+console.log(test);
