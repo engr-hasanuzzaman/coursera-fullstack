@@ -39,7 +39,7 @@ type SessionAttributes = {
     password: string;
     email: string;
     company_login?: boolean | null;
-    foo: boolean;
+    foo?: boolean; // if this does not optional will not be castable from InputType
   };
 
 type InputsType = {
@@ -55,3 +55,9 @@ let iData: InputsType = {
 }
 let test: SessionAttributes = iData as SessionAttributes ;
 console.log(test);
+
+// in the below sectoin logicVal eill contain foo
+// TS casting will allow you to use unexected value using casting itself will not cast any data
+type logic = 'on' | 'off';
+let logicVal: logic = "foo" as logic;
+console.log(logicVal);
