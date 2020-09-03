@@ -61,3 +61,6 @@ console.log(test);
 type logic = 'on' | 'off';
 let logicVal: logic = "foo" as logic;
 console.log(logicVal);
+
+let it = [1, 2,3,4,5,6];
+console.log(it.map((v, i) => [v, i]));
