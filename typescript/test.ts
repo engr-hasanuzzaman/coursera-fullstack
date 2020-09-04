@@ -64,3 +64,15 @@ console.log(logicVal);
 
 let it = [1, 2,3,4,5,6];
 console.log(it.map((v, i) => [v, i]));
+
+let aa = {
+    'a_a': 1,
+    'a_b': 2,
+    'a_c': 3 
+};
+
+let a_arr = ['a', 'b', 'c'];
+
+a_arr.forEach(element => {
+    console.log(aa[`a_${element}`])
+});
