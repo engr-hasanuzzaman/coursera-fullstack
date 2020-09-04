@@ -68,7 +68,8 @@ console.log(it.map((v, i) => [v, i]));
 let aa = {
     'a_a': 1,
     'a_b': 2,
-    'a_c': 3 
+    'a_c': 3,
+    1: 3,
 };
 
 let a_arr = ['a', 'b', 'c'];
