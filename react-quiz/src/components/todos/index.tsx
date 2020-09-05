@@ -33,7 +33,8 @@ const TodoPageRenderer = ({todos}: TodoPageRendererProps) => {
                 return (
                     <div key={index} style={{border: '2px solid green', marginBottom: '2px'}}>
                         <p><strong>Title:</strong> {todo.title}</p>      
-                        <p><strong>Description:</strong> {todo.description}</p>      
+                        <p><strong>Description:</strong> {todo.description}</p>
+                        <p><strong>ID:</strong> {todo.id}</p>
                         <p><strong>Status:</strong> {todo.status}</p>      
                     </div>
                 )
