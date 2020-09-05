@@ -13,20 +13,29 @@ export const TodoPage = () => {
             payload: todo
         });
     }, [dispatch]);
+
+    const handleDelete = useCallback((id: number) => {
+        // debugger;
+        dispatch({
+            type: 'Todo.Delete',
+            payload: id
+        });
+    }, [dispatch]);
     // debugger;
     return (
         <>
             <Form todo={null} submitHandler={addTodo}/>
-            <TodoPageRenderer todos={state.todos}/>
+            <TodoPageRenderer todos={state.todos} handleDelete={handleDelete}/>
         </>
     )
 }
 
 type TodoPageRendererProps = {
     todos: TodoType[];
+    handleDelete: (id: number) => void;
 }
 
-const TodoPageRenderer = ({todos}: TodoPageRendererProps) => {
+const TodoPageRenderer = ({todos, handleDelete}: TodoPageRendererProps) => {
     return (
         <>
             {todos.map((todo, index) =>{
@@ -35,7 +44,8 @@ const TodoPageRenderer = ({todos}: TodoPageRendererProps) => {
                         <p><strong>Title:</strong> {todo.title}</p>      
                         <p><strong>Description:</strong> {todo.description}</p>
                         <p><strong>ID:</strong> {todo.id}</p>
-                        <p><strong>Status:</strong> {todo.status}</p>      
+                        <p><strong>Status:</strong> {todo.status}</p>
+                        <button onClick={() => {handleDelete(todo.id ?? -1)}}>Delete</button>   
                     </div>
                 )
             })}
