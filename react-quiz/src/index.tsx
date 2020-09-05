@@ -3,12 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import Counter from './components/Counter';
+import {TodoPage} from './components/todos';
 let count = 0;
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <TodoPage />
   </React.StrictMode>,
   document.getElementById('root')
 );
