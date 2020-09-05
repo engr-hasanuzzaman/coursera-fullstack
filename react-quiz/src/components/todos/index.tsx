@@ -7,6 +7,7 @@ export const TodoPage = () => {
     const [state, dispatch] = useReducer(todoReducer, {todos: initialTodos});
 
     const addTodo = useCallback((todo: TodoType) => {
+        // debugger;
         dispatch({
             type: 'Todo.Set',
             payload: todo

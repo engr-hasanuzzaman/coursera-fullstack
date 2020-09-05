@@ -7,7 +7,7 @@ export let todos: TodoType[] = [
 export const todoReducer = (state: StoreType, action: TodoActions) => {
     switch (action.type) {
         case 'Todo.Set':
-            return {...state, todos: [...todos, action.payload]}
+            return {...state, todos: [...state.todos, action.payload]}
         default:
             return state
             break;

@@ -21,7 +21,8 @@ export const Form = (props: FormPropType) => {
 
     const handleSubmit = useCallback(() => {
         submitHandler(todo);
-    }, [submitHandler, todo]);
+        setTodo({title: '', description: '', status: 'open'});
+    }, [submitHandler, todo, setTodo]);
 
     return(
         <div>
