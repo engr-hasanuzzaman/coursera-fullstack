@@ -9,8 +9,8 @@ type props = {
     todos: [todo]
 };
 
-export default const Todos: React.FC<props> = (props) = {
-    const (todos) = props;
+export const Todos: React.FC<props> = (props) = {
+    const {todos} = props;
 
     return (
         <div>
