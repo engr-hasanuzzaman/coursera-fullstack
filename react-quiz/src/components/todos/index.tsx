@@ -21,11 +21,19 @@ export const TodoPage = () => {
             payload: id
         });
     }, [dispatch]);
+    
+    const handleMarkComplete = useCallback((todo: TodoType) => {
+        // debugger;
+        dispatch({
+            type: 'Todo.Update',
+            payload: {...todo, status: 'closed'}
+        });
+    }, [dispatch]);
     // debugger;
     return (
         <>
             <Form todo={null} submitHandler={addTodo}/>
-            <TodoPageRenderer todos={state.todos} handleDelete={handleDelete}/>
+            <TodoPageRenderer todos={state.todos} handleDelete={handleDelete} handleMarkComplete={handleMarkComplete}/>
         </>
     )
 }
@@ -33,9 +41,10 @@ export const TodoPage = () => {
 type TodoPageRendererProps = {
     todos: TodoType[];
     handleDelete: (id: number) => void;
+    handleMarkComplete: (todo: TodoType) => void;
 }
 
-const TodoPageRenderer = ({todos, handleDelete}: TodoPageRendererProps) => {
+const TodoPageRenderer = ({todos, handleDelete, handleMarkComplete}: TodoPageRendererProps) => {
     return (
         <>
             {todos.map((todo) =>{
@@ -46,6 +55,10 @@ const TodoPageRenderer = ({todos, handleDelete}: TodoPageRendererProps) => {
                         <p><strong>ID:</strong> {todo.id}</p>
                         <p><strong>Status:</strong> {todo.status}</p>
                         <button onClick={() => {handleDelete(todo.id ?? -1)}}>Delete</button>   
+                        { todo.status !== 'closed' && 
+                            <button onClick={() => {handleMarkComplete(todo)}}>Mark Complete</button>   
+                        }
+                        
                     </div>
                 )
             })}

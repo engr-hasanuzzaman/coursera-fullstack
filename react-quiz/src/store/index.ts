@@ -15,12 +15,15 @@ export const todoReducer = (state: StoreType = initialState, action: TodoActions
             });
         case 'Todo.Update':
             return produce(state, draft => {
-                let todo = draft.todos.find(({id}) => id === action.payload.id);
-                todo = action.payload;
+                const index = draft.todos.findIndex(({id}) => id === action.payload.id);
+                if(index === -1) return; // handle not found 
+                draft.todos[index] = action.payload;
             })
         case 'Todo.Delete':
             return produce(state, draft => {
                 const index = draft.todos.findIndex(({id}) => id === action.payload);
+                if(index === -1) return;
+
                 draft.todos.splice(index, 1); // replace index position one element with nothing
             })
         default:
