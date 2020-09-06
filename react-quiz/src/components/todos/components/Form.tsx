@@ -10,7 +10,7 @@ export const Form = (props: FormPropType) => {
     const [todo, setTodo] = useState<TodoType>(props.todo ?? {title: '', description: '', status: 'open'});
     const submitHandler = props.submitHandler;
 
-    const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLSelectElement>) => {
         const key = e.target.name;
         const value = e.target.value;
         // debugger;
@@ -28,6 +28,10 @@ export const Form = (props: FormPropType) => {
         <div>
             <input name='title' type="text" value={todo.title} placeholder="title" onChange={handleChange}/>
             <input name='description' type="text" value={todo.description} placeholder="description" onChange={handleChange}/>
+            <select name="status" id="" onChange={handleChange} value={todo.status}>
+                <option value="open">open</option>
+                <option value="closed">closed</option>
+            </select>
             <button type='submit' onClick={handleSubmit}>Create Todo</button>
         </div>
     )

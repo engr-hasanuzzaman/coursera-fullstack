@@ -1,15 +1,17 @@
 import { TodoType, StoreType, TodoActions } from '../types';
 import produce from 'immer';
 
-export let todos: TodoType[] = [
-    {title: 'test', description: 'sample description', status: 'open', id: 1}
-]
+export const initialState: StoreType = {
+    todos: [] as TodoType[],
+    id: 0
+}
 
-export const todoReducer = (state: StoreType, action: TodoActions) => {
+export const todoReducer = (state: StoreType = initialState, action: TodoActions) => {
     switch (action.type) {
         case 'Todo.Set':
             return produce(state, draft => {
-                draft.todos.push({...action.payload, id: draft.todos.length + 1});
+                draft.todos.push({...action.payload, id: draft.id + 1});
+                draft.id = draft.id + 1;
             });
         case 'Todo.Update':
             return produce(state, draft => {

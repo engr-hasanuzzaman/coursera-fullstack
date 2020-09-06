@@ -1,10 +1,10 @@
 import React, {useState, useReducer, useCallback} from 'react';
-import { todoReducer, todos as initialTodos } from '../../store/index';
+import { todoReducer, initialState} from '../../store/index';
 import {TodoType} from '../../types';
 import {Form} from './components/Form';
 
 export const TodoPage = () => {
-    const [state, dispatch] = useReducer(todoReducer, {todos: initialTodos});
+    const [state, dispatch] = useReducer(todoReducer, initialState);
 
     const addTodo = useCallback((todo: TodoType) => {
         // debugger;
@@ -38,9 +38,9 @@ type TodoPageRendererProps = {
 const TodoPageRenderer = ({todos, handleDelete}: TodoPageRendererProps) => {
     return (
         <>
-            {todos.map((todo, index) =>{
+            {todos.map((todo) =>{
                 return (
-                    <div key={index} style={{border: '2px solid green', marginBottom: '2px'}}>
+                    <div key={todo.id} style={{border: '2px solid green', marginBottom: '2px'}}>
                         <p><strong>Title:</strong> {todo.title}</p>      
                         <p><strong>Description:</strong> {todo.description}</p>
                         <p><strong>ID:</strong> {todo.id}</p>

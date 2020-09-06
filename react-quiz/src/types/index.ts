@@ -11,6 +11,7 @@ export type TodoType = {
 // store management
 export type StoreType = {
     todos: TodoType[];
+    id: number;
 };
 
 export type TodoActions =
