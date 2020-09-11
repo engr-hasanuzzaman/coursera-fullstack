@@ -113,7 +113,7 @@ function RenderComments({comments, addComment, dishId}){
           return (
             <li key={comment.id}>
               <p>{comment.comment}</p>
-              <p>-- {comments[0].author}, { new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date))) }</p>
+              <p>-- {comment.author}, { new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date))) }</p>
             </li>
           )
         })
