@@ -7,3 +7,5 @@ anys.push({ anything: "goes" });
 console.log(anys);
 
 // 
+
+let a = null as number | string;
