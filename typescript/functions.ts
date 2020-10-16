@@ -24,3 +24,22 @@ function buildName(firstName: string, ...restOfName: string[]) {
 // Methods, on the other hand, are only created once and attached to Handler’s prototype.
 // They are shared between all objects of type Handler.
 
+// Do not use more than 2 params instead use object destructuring
+interface Person {
+  name: string;
+  age: number;
+  firstName: string;
+  lastName: string;
+}
+
+function singleLineUserInfo({name, age, firstName, lastName}: Person) {
+  return `${name}-${age}-${firstName}-${lastName}`;
+}
+const foo: Person = {
+  name: 'foo',
+  age: 20,
+  firstName: 'foo_1st',
+  lastName: 'foo_lst'
+};
+
+console.log(singleLineUserInfo(foo));
