@@ -7,4 +7,4 @@ function randomTagedFunction(first, ...rest) {
     console.log("rem args is ", rest);
 }
 
-randomTagedFunction(input);
+randomTagedFunction `This is ${f1} and we also have the ${f2}`;
