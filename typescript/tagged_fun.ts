@@ -8,3 +8,4 @@ function randomTagedFunction(first, ...rest) {
 }
 
 randomTagedFunction `This is ${f1} and we also have the ${f2}`;
+randomTagedFunction ``;
